@@ -1,1 +1,242 @@
-/* You can add global styles to this file, and also import other style files */
+// apply only global styles and material overrides 
+
+@use '@angular/material' as mat;
+@use './theme/m3-theme.scss';
+@include mat.core();
+@import './theme/variables';
+
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: var(--mat-app-background-color);
+  color: var(--mat-app-text-color);
+}
+
+
+.mat-icon {
+  color: $primary !important;
+}
+
+
+// ***** utility classes ***** 
+
+.d-flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-fill {
+  flex: 1 1 auto !important;
+}
+
+.y-center {
+  display: flex;
+  align-items: center;
+} 
+
+.x-center {
+  display: flex;
+  justify-content: center;
+}
+
+.xy-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.justify-content-start {
+  justify-content: start;
+}
+
+.justify-content-end {
+  justify-content: end;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.align-items-start {
+  align-items: start;
+}
+
+.align-items-end {
+  align-items: end;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.img-fluid {
+  width: 100%;
+  height: auto;
+}
+
+.p-0 {
+  padding: 0px;
+}
+
+.m-0 {
+  margin: 0px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.ml-10 {
+  margin-left: 10px;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.ml-20 {
+  margin-left: 20px;
+}
+
+.mr-20 {
+  margin-right: 20px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+
+.space-between {
+  justify-content: space-between;
+}
+
+.flex-wrap {
+  flex-wrap:wrap;
+}
+
+.flex-wrap-reverse {
+  flex-wrap:wrap-reverse;
+}
+
+
+.container-fluid {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.container {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+}
+
+[class*='col-'] {
+  padding: 0 15px;
+  flex: 1;
+}
+
+// Responsive Classes
+
+.col-1 { flex-basis: 8.33%; }
+.col-2 { flex-basis: 16.66%; }
+.col-3 { flex-basis: 25%; }
+.col-4 { flex-basis: 33.33%; }
+.col-5 { flex-basis: 41.66%; }
+.col-6 { flex-basis: 50%; }
+.col-7 { flex-basis: 58.33%; }
+.col-8 { flex-basis: 66.66%; }
+.col-9 { flex-basis: 75%; }
+.col-10 { flex-basis: 83.33%; }
+.col-11 { flex-basis: 91.66%; }
+.col-12 { flex-basis: 100%; }
+.col { flex-basis: 100%; }
+
+@media (max-width: 768px) {
+  .col-md-1 { flex-basis: 8.33%; }
+  .col-md-2 { flex-basis: 16.66%; }
+  .col-md-3 { flex-basis: 25%; }
+  .col-md-4 { flex-basis: 33.33%; }
+  .col-md-5 { flex-basis: 41.66%; }
+  .col-md-6 { flex-basis: 50%; }
+  .col-md-7 { flex-basis: 58.33%; }
+  .col-md-8 { flex-basis: 66.66%; }
+  .col-md-9 { flex-basis: 75%; }
+  .col-md-10 { flex-basis: 83.33%; }
+  .col-md-11 { flex-basis: 91.66%; }
+  .col-md-12 { flex-basis: 100%; }
+}
+
+@media (max-width: 576px) {
+  .col-sm-1 { flex-basis: 8.33%; }
+  .col-sm-2 { flex-basis: 16.66%; }
+  .col-sm-3 { flex-basis: 25%; }
+  .col-sm-4 { flex-basis: 33.33%; }
+  .col-sm-5 { flex-basis: 41.66%; }
+  .col-sm-6 { flex-basis: 50%; }
+  .col-sm-7 { flex-basis: 58.33%; }
+  .col-sm-8 { flex-basis: 66.66%; }
+  .col-sm-9 { flex-basis: 75%; }
+  .col-sm-10 { flex-basis: 83.33%; }
+  .col-sm-11 { flex-basis: 91.66%; }
+  .col-sm-12 { flex-basis: 100%; }
+}
+
+@media (max-width: 768px) {
+  .justify-content-md-start { justify-content: start; }
+  .justify-content-md-center { justify-content: center; }
+  .flex-md-column { flex-direction: column; }
+  .flex-md-row { flex-direction: row; }
+}
+
+@media ( max-width: 576px ) {
+  .justify-content-sm-start { justify-content: start; }
+  .justify-content-sm-center { justify-content: center; }
+  .flex-sm-column { flex-direction: column; }
+  .flex-sm-row { flex-direction: row; }
+}
+
+// Other responsive styles
+@media screen and (max-width: 767.98px) { 
+  p {
+    font-size: 1rem;
+    line-height: 1.3rem
+  }
+}

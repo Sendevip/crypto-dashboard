@@ -1,0 +1,30 @@
+<mat-toolbar>
+  <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+  </button>
+  <div class="logo"><a [routerLink]="''"><img [src]="logo()"/></a> Cryptodata </div>
+  <div class="menu-actions">
+    <div class="theme-switch">
+      <ui-theme-switch-button />
+    </div>
+  </div>
+</mat-toolbar>
+<mat-drawer-container class="drawer-container" [hasBackdrop]="isHandset$ | async">
+  <mat-drawer #drawer [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
+    <mat-nav-list>
+      <mat-nav-list>
+        @for (item of menuItems(); track trackByFn(item)) {
+        <a  mat-list-item [routerLink]="item.route" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active" (click)="handleMenuSelection()">
+          <div class="y-center">
+            <mat-icon class="mr-10">{{ item.icon }}</mat-icon>
+            {{ item.label }}
+          </div>
+        </a>
+        }
+      </mat-nav-list>
+    </mat-nav-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <ng-content #content></ng-content>
+  </mat-drawer-content>
+</mat-drawer-container>

@@ -1,0 +1,46 @@
+
+@switch (type()) {
+  @case ("basic") {
+    <button mat-button [color]="color()" (click)="onButtonClick()">
+      <ng-container *ngTemplateOutlet="buttonInner"></ng-container>
+    </button>
+  }
+  @case ("raised") {
+    <button mat-raised-button [color]="color()" (click)="onButtonClick()">
+      <ng-container *ngTemplateOutlet="buttonInner"></ng-container>
+    </button>
+  }
+  @case ("stroked") {
+    <button mat-stroked-button [color]="color()" (click)="onButtonClick()">
+      <ng-container *ngTemplateOutlet="buttonInner"></ng-container>
+    </button>
+  }
+  @case ("flat") {
+    <button mat-flat-button [color]="color()" (click)="onButtonClick()">
+      <ng-container *ngTemplateOutlet="buttonInner"></ng-container>
+    </button>
+  }
+  @case ("icon") {
+    <button mat-icon-button [color]="color()" (click)="onButtonClick()">
+      <mat-icon [color]="color()">{{icon()}}</mat-icon>
+    </button>
+  }
+}
+
+
+<ng-template #buttonInner>
+  <div class="y-center">
+
+      @if(icon() && iconPosition() === 'left') { 
+        <mat-icon class="mr-10 y-center" [color]="color()">{{icon()}}</mat-icon>
+      }
+
+      {{ text() }} 
+
+      @if(icon() && iconPosition() === 'right') { 
+        <mat-icon class="mr-10 y-center" [color]="color()">{{icon()}}</mat-icon>
+      }
+
+  </div>
+</ng-template>
+

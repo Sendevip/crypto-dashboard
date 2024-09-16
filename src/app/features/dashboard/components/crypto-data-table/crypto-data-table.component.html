@@ -1,0 +1,10 @@
+<app-data-table [title]="tableTitle" 
+    [data]="(cryptocurrencies$ | async) ?? []" 
+    [loading]="(isLoading$ | async) ?? false"
+    [columns]="cryptoTableColumns"
+    [pageSizeOptions]="pageSizeOptions" 
+    [pageSize]="pageSize"
+    [totalItems]="totalCoins"
+    (pageEvent)="onPageEvent($event)"
+    >
+</app-data-table>

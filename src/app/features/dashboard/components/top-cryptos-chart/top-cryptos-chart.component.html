@@ -1,0 +1,10 @@
+<mat-card>
+    <app-highcharts
+        [data]="(chartData$ | async) ?? []"
+        [chartType]="'bar'"
+        [title]="'Top Cryptocurrencies by Market Cap'"
+        [xAxisTitle]="'Cryptocurrencies'"
+        [yAxisTitle]="'Market Cap (USD)'"
+        [seriesName]="'Market Cap'">
+    </app-highcharts>
+</mat-card>

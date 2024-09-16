@@ -1,0 +1,184 @@
+// ** Material 3 theme **
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+$_palettes: (
+  primary: (
+    0: #000000,
+    10: #09275a,
+    20: #124e85,
+    25: #1964a0,
+    30: #1b64a0, 
+    35: #2470b0,
+    40: #2d7ffd, // primary
+    50: #4096ff,  
+    60: #54aeff, 
+    70: #68c6ff,  
+    80: #7cdfff,
+    90: #2d7ffd, 
+    95: #a6feff, 
+    98: #c0ffff, 
+    99: #d4ffff,
+    100: #ffffff,
+  ),
+  secondary: (
+    0: #000000,
+    10: #0d1f12,
+    20: #1a3524,
+    25: #234230,
+    30: #2d4f3c,
+    35: #375c48,
+    40: #426a55,
+    50: #59876f,
+    60: #71a58a,
+    70: #8ac3a6,
+    80: #a6e1c2,
+    90: #c3ffe0,
+    95: #e2ffee,
+    98: #f3fff7,
+    99: #f8fffb,
+    100: #ffffff,
+  ),
+  tertiary: (
+    0: #000000,
+    10: #1f1635,
+    20: #352b4c,
+    25: #413758,
+    30: #4d4365,
+    35: #5a4f73,
+    40: #675b81,
+    50: #81749c,
+    60: #9c8eb8,
+    70: #b8a9d4,
+    80: #d4c4f1,
+    90: #f0e7ff,
+    95: #f9f1ff,
+    98: #fef7ff,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  neutral: (
+    0: #000000,
+    10: #393f50, // --mat-app-text-color
+    20: #3b3c3f,
+    25: #3b3b3f,
+    30: #46464a,
+    35: #525256,
+    40: #5e5e62,
+    50: #77777a,
+    60: #919094,
+    70: #ababaf,
+    80: #c7c6ca,
+    90: #e3e2e6,
+    95: #f2f0f4,
+    98: #faf9fd,
+    99: #fdfbff,
+    100: #ffffff,
+    4: #0d0e11,
+    6: #121316,
+    12: #1f1f23,
+    17: #292a2d,
+    22: #343538,
+    24: #38393c,
+    87: #dbd9dd,
+    92: #e9e7ec,
+    94: #efedf1,
+    96: #f4f3f7,
+  ),
+  neutral-variant: (
+    0: #000000,
+    10: #09275a,
+    20: #273a98,
+    25: #1964a0,
+    30: #1b64a0, 
+    35: #2470b0,
+    40: #2d7ffd, // --mat-icon-color
+    50: #4096ff,  
+    60: #54aeff, 
+    70: #68c6ff,  
+    80: #7cdfff,
+    90: #2d7ffd, 
+    95: #a6feff, 
+    98: #c0ffff, 
+    99: #d4ffff,
+    100: #ffffff,
+    // 0: #000000,
+    // 10: #171c22,
+    // 20: #2b3137,
+    // 25: #373c42,
+    // 30: #42474e, 
+    // 35: #4e535a,
+    // 40: #5a5f66,
+    // 50: #73777f,
+    // 60: #8c9199,
+    // 70: #a6acb4,
+    // 80: #c2c7cf,
+    // 90: #dee3eb,
+    // 95: #ecf1f9,
+    // 98: #f8faff,
+    // 99: #fbfcff,
+    // 100: #ffffff,
+  ),
+  error: (
+    0: #000000,
+    10: #410002,
+    20: #690005,
+    25: #7e0007,
+    30: #93000a,
+    35: #a80710,
+    40: #ba1a1a,
+    50: #de3730,
+    60: #ff5449,
+    70: #ff897d,
+    80: #ffb4ab,
+    90: #ffdad6,
+    95: #ffedea,
+    98: #fff8f7,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+);
+
+$_rest: (
+  secondary: map.get($_palettes, secondary),
+  neutral: map.get($_palettes, neutral),
+  neutral-variant: map.get($_palettes, neutral-variant),
+  error: map.get($_palettes, error),
+);
+
+$_primary: map.merge(map.get($_palettes, primary), $_rest);
+$_tertiary: map.merge(map.get($_palettes, tertiary), $_rest);
+
+$light-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: $_primary,
+    tertiary: $_tertiary,
+  ),
+  typography: (
+    use-system-variables: true,
+  ),
+  density: (
+    scale: 0
+  )
+));
+
+$dark-theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+    primary: $_primary,
+    tertiary: $_tertiary,
+  ),
+));
+
+
+// Default theme
+:root {
+  @include mat.all-component-themes($light-theme); 
+  // @include mat.all-component-colors($light-theme);
+}
+
+// Apply dark theme colors
+.dark-theme {
+  @include mat.all-component-colors($dark-theme);
+}

@@ -1,0 +1,53 @@
+<mat-card>
+
+  <div class="table-header">
+    <h4>{{ title }}</h4>
+    <div class="table-filters">
+      <mat-form-field [appearance]="fieldAppearance">
+        <input matInput (keyup)="applyFilter($event)">
+        <mat-label>Search in table</mat-label>
+      </mat-form-field>
+      <form [formGroup]="columnForm">
+        <mat-form-field [appearance]="fieldAppearance">
+          <mat-label>Filter Columns</mat-label>
+          <mat-select multiple formControlName="columns">
+            <mat-option [value]="'all'" (onSelectionChange)="toggleAllColumns($event)">
+              All
+            </mat-option>
+            <mat-option *ngFor="let column of columns; trackBy: trackByFn" [value]="column.key" >
+              {{column.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </form>
+    </div>
+  </div>
+
+  <mat-table [dataSource]="dataSource" aria-label="Data table"  matSort>
+    <ng-container *ngFor="let column of columns; let i = index; trackBy: trackByFn" [matColumnDef]="column.key" [sticky]="i === 1">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>{{ column.name }}</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+
+        @if(column.icon) {
+          <mat-icon class="mr-10">{{ column.icon }}</mat-icon>
+        }
+
+        {{ row[column.key] }}
+
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+
+  @if(loading) {
+    <div class="progress-bar">
+      <mat-progress-bar mode="buffer"></mat-progress-bar>
+    </div>
+  }
+
+  <mat-paginator #paginator (page)="onPageEvent($event)" [pageSizeOptions]="pageSizeOptions" [pageSize]="pageSize"
+    [length]="totalItems" showFirstLastButtons>
+  </mat-paginator>
+
+</mat-card>

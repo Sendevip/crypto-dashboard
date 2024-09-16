@@ -1,0 +1,45 @@
+:host {
+    --mat-table-row-item-outline-color: $light-gray !important;
+}
+
+mat-card {
+    padding: 30px;
+}
+
+.progress-bar {
+    padding: 20px 0;
+}
+
+.table-header, .table-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.table-header {
+    margin-bottom: 20px;
+
+    h4 {
+       font-size: 1.5rem;
+       font-weight: 500;
+       margin: 0;
+       border-left: 4px solid #2d7ffd;
+       padding: 20px;
+       display: flex;
+       align-items: center;
+   }
+   
+   .table-filters {
+     margin-top: 10px;
+   }
+}
+
+.mat-mdc-table {
+    overflow-x: auto !important;
+}
+
+mat-header-cell.mat-mdc-header-cell, mat-cell.mat-mdc-cell, mat-footer-cell.mat-mdc-footer-cell {
+   min-width: 120px;
+}
