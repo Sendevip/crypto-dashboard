@@ -1,0 +1,99 @@
+## Project Structure Tree
+├─ src
+│  ├─ app
+│  │  ├─ app.component.spec.ts
+│  │  ├─ app.component.ts
+│  │  ├─ app.config.ts
+│  │  ├─ app.routes.ts
+│  │  ├─ core
+│  │  │  ├─ interceptors
+│  │  │  │  ├─ error-handling-interceptor.interceptor.spec.ts
+│  │  │  │  └─ error-handling-interceptor.interceptor.ts
+│  │  │  ├─ models
+│  │  │  │  └─ cryptocurrency.model.ts
+│  │  │  ├─ services
+│  │  │  │  ├─ crypto-api
+│  │  │  │  │  ├─ crypto-api.service.spec.ts
+│  │  │  │  │  └─ crypto-api.service.ts
+│  │  │  │  ├─ menus
+│  │  │  │  │  ├─ menu.service.spec.ts
+│  │  │  │  │  └─ menu.service.ts
+│  │  │  │  ├─ snackbar
+│  │  │  │  │  ├─ snackbar.service.spec.ts
+│  │  │  │  │  └─ snackbar.service.ts
+│  │  │  │  └─ theme
+│  │  │  │     ├─ theme.service.spec.ts
+│  │  │  │     └─ theme.service.ts
+│  │  ├─ features
+│  │  │  └─ dashboard
+│  │  │     ├─ components
+│  │  │     │  ├─ crypto-data-table
+│  │  │     │  │  ├─ crypto-data-table.component.html
+│  │  │     │  │  ├─ crypto-data-table.component.scss
+│  │  │     │  │  ├─ crypto-data-table.component.spec.ts
+│  │  │     │  │  └─ crypto-data-table.component.ts
+│  │  │     │  └─ top-cryptos-chart
+│  │  │     │     ├─ top-cryptos-chart.component.html
+│  │  │     │     ├─ top-cryptos-chart.component.scss
+│  │  │     │     ├─ top-cryptos-chart.component.spec.ts
+│  │  │     │     └─ top-cryptos-chart.component.ts
+│  │  │     ├─ dashboard.component.ts
+│  │  │     ├─ dashboard.module.ts
+│  │  │     ├─ dashboard.routes.ts
+│  │  │     ├─ services
+│  │  │     │  └─ crypto-table-config
+│  │  │     │     ├─ crypto-table-config.service.spec.ts
+│  │  │     │     └─ crypto-table-config.service.ts
+│  │  │     └─ store
+│  │  │        ├─ dashboard.actions.ts
+│  │  │        ├─ dashboard.effects.ts
+│  │  │        ├─ dashboard.reducer.ts
+│  │  │        └─ dashboard.selectors.ts
+│  │  ├─ shared
+│  │  │  ├─ components
+│  │  │  │  ├─ button
+│  │  │  │  │  ├─ button.component.html
+│  │  │  │  │  ├─ button.component.scss
+│  │  │  │  │  ├─ button.component.spec.ts
+│  │  │  │  │  └─ button.component.ts
+│  │  │  │  ├─ data-table
+│  │  │  │  │  ├─ data-table.component.html
+│  │  │  │  │  ├─ data-table.component.scss
+│  │  │  │  │  ├─ data-table.component.spec.ts
+│  │  │  │  │  └─ data-table.component.ts
+│  │  │  │  ├─ highcharts
+│  │  │  │  │  ├─ highcharts.component.html
+│  │  │  │  │  ├─ highcharts.component.scss
+│  │  │  │  │  ├─ highcharts.component.spec.ts
+│  │  │  │  │  └─ highcharts.component.ts
+│  │  │  │  ├─ navbar
+│  │  │  │  │  ├─ navbar.component.html
+│  │  │  │  │  ├─ navbar.component.scss
+│  │  │  │  │  ├─ navbar.component.spec.ts
+│  │  │  │  │  └─ navbar.component.ts
+│  │  │  │  ├─ not-found
+│  │  │  │  │  ├─ not-found.component.html
+│  │  │  │  │  ├─ not-found.component.scss
+│  │  │  │  │  ├─ not-found.component.spec.ts
+│  │  │  │  │  └─ not-found.component.ts
+│  │  │  │  └─ theme-switch-button
+│  │  │  │     ├─ theme-switch-button.component.scss
+│  │  │  │     ├─ theme-switch-button.component.spec.ts
+│  │  │  │     └─ theme-switch-button.component.ts
+│  │  │  └─ models
+│  │  │     └─ menu-item.model.ts
+│  │  └─ store
+│  │     ├─ app.reducer.ts
+│  │     └─ app.state.ts
+│  ├─ environments
+│  │  ├─ environment.prod.ts
+│  │  └─ environment.ts
+│  ├─ index.html
+│  ├─ main.ts
+│  ├─ styles.scss
+│  └─ theme
+│     ├─ m3-theme.scss
+│     └─ _variables.scss
+├─ tsconfig.app.json
+├─ tsconfig.json
+└─ tsconfig.spec.json
