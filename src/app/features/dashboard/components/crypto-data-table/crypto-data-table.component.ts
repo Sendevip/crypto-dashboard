@@ -40,17 +40,12 @@ export class CryptoDataTableComponent {
     this.isLoading$ = this.store.select(selectDashboardLoading);
   }
 
-  ngOnInit() {
-    this.store.dispatch(loadCryptocurrencies({ request: this.request }));
-  }
-
-
   onPageEvent(event: PageEvent) {
     console.log(event)
     this.request = {
       ...this.request,
       perPage: event.pageSize ?? this.request.perPage,
-      page: event.pageIndex + 1 // API typically uses 1-based indexing
+      page: event.pageIndex + 1
     };
 
     this.store.dispatch(loadCryptocurrencies({ request: this.request }));
