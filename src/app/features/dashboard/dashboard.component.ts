@@ -20,17 +20,9 @@ import { MenuService } from '../../core/services/menus/menu.service';
     `,
   styles: []
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent  {
 
   logo = 'assets/images/logo.png';
   menuService = inject(MenuService);
-  private router = inject(Router);
-  private store = inject(Store);
-
-  ngOnInit() {
-    const request:CryptoApiRequest = { currency:'usd', order:'market_cap_desc', perPage:10, page:1 };
-    this.store.dispatch(loadCryptocurrencies({ request }));
-  }
-
 
 }
