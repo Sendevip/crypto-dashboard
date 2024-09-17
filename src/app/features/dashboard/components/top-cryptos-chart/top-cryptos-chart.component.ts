@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { HighchartsComponent } from '../../../../shared/components/highcharts/highcharts.component';
 import { MatCardModule } from '@angular/material/card';
+import { CryptoApiRequest } from '../../../../core/models/cryptocurrency.model';
+import { loadCryptocurrencies } from '../../store/dashboard.actions';
 
 
  interface ChartItem {
@@ -31,5 +33,10 @@ export class TopCryptosChartComponent {
 
   constructor() {
     this.chartData$ = this.store.select(selectTopCryptocurrenciesByMarketCap);
+  }
+
+  ngOnInit() {
+    const request:CryptoApiRequest = { currency:'usd', order:'market_cap_desc', perPage:10, page:1 };
+    this.store.dispatch(loadCryptocurrencies({ request }));
   }
 }
