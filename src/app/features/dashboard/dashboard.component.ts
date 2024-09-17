@@ -28,7 +28,7 @@ export class DashboardComponent implements OnInit {
   private store = inject(Store);
 
   ngOnInit() {
-    const request:CryptoApiRequest = { currency:'usd', order:'market_cap_desc', perPage:50, page:1 };
+    const request:CryptoApiRequest = { currency:'usd', order:'market_cap_desc', perPage:10, page:1 };
     this.store.dispatch(loadCryptocurrencies({ request }));
   }
 
