@@ -1,16 +1,13 @@
-import { ChangeDetectionStrategy, Component, inject, signal, Signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ColumnConfiguration, DataTableComponent } from '../../../../shared/components/data-table/data-table.component';
 import { Observable } from 'rxjs';
 import { CryptoApiRequest, Cryptocurrency } from '../../../../core/models/cryptocurrency.model';
 import { Store } from '@ngrx/store';
-import { AppState } from '../../../../store/app.state';
 import { selectCryptocurrencies, selectDashboardLoading } from '../../store/dashboard.selectors';
 import { AsyncPipe } from '@angular/common';
 import { CryptoTableConfigService } from '../../services/crypto-table-config/crypto-table-config.service';
 import { PageEvent } from '@angular/material/paginator';
 import { loadCryptocurrencies } from '../../store/dashboard.actions';
-
-
 
 
 @Component({
@@ -22,7 +19,6 @@ import { loadCryptocurrencies } from '../../store/dashboard.actions';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CryptoDataTableComponent {
-  // private store = inject(Store<AppState>);
   private cryptoTableConfigService = inject(CryptoTableConfigService);
   cryptoTableColumns: ColumnConfiguration[];
   cryptocurrencies$: Observable<Cryptocurrency[] | null>;
@@ -40,6 +36,11 @@ export class CryptoDataTableComponent {
     this.isLoading$ = this.store.select(selectDashboardLoading);
   }
 
+  ngOnInit() {
+    const request:CryptoApiRequest = { currency:'usd', order:'market_cap_desc', perPage:10, page:1 };
+    this.store.dispatch(loadCryptocurrencies({ request }));
+  }
+
   onPageEvent(event: PageEvent) {
     console.log(event)
     this.request = {
@@ -52,3 +53,4 @@ export class CryptoDataTableComponent {
   }
 
 }
+
